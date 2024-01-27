@@ -1,0 +1,20 @@
+Installations:
+
+conda install pytorch torchvision cudatoolkit=10.0 -c pytorch
+conda install -c anaconda pillow pyyaml opencv requests
+conda install -c conda-forge visdom
+
+
+
+
+Preparation of Datasets:
+
+sh dataset/get_tier_and_mini.sh
+
+
+
+
+
+Execution of the Code:
+
+python main.py --eid -1 --gpu_id 0 --yaml_file configs/demo/mini/20way_1shot.yaml

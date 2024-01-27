@@ -1,0 +1,38 @@
+dataset:
+    name: 'mini-imagenet'
+model:
+    structure: 'resnet34'
+    resnet_pretrain: True
+test:
+    ep_num: 5
+    query_num: 8
+    compute_train_acc: True
+    do_after_ep: 50           # non-eager mode
+    manner: 'same_as_train'
+    batch_sz: 1
+ctmnet:
+    pred_source: 'score'
+    dnet: True
+    dnet_out_c: 40            # shallow output channel is 64
+    dnet_supp_manner: '1'
+    use_discri_loss: False
+    CE_use_relation: True
+fsl:
+    ctm: True
+    n_way: [20]
+    k_shot: [1]
+    k_query: [8]
+train:
+    clip_grad: True
+    batch_sz: 1
+    nep: 400
+    lr_scheduler: [200, 300, 350]
+data:
+    im_size: 84
+    augment: True
+ctrl:
+    method: 'all_new'   # keep it in all new experiments
+    eager: 0
+    note: 'config file: {:s}'
+    total_iter_train: [100, 200, 300]
+    total_iter_val: [50, 100, 150]
